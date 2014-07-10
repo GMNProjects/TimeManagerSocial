@@ -22,12 +22,12 @@ import org.springframework.web.client.RestClientException;
 
 /**
  * @author GMNProjects
- * Интерфейс  Client API
- *
+ *         Client API
  */
 public interface ClientOperations {
     /**
-     * Получуть клиента по id
+     * Get client by ID
+     *
      * @param id
      * @return Client
      * @throws RestClientException
@@ -35,7 +35,8 @@ public interface ClientOperations {
     public Client getClient(long id) throws RestClientException;
 
     /**
-     * Добавить клиента
+     * Add client
+     *
      * @param client
      * @return
      * @throws RestClientException
@@ -43,7 +44,8 @@ public interface ClientOperations {
     public Client addClient(Client client) throws RestClientException;
 
     /**
-     * Удалить клиента
+     * Delete client
+     *
      * @param client Замечание: объект Client должен иметь id
      * @return
      * @throws RestClientException
@@ -51,7 +53,8 @@ public interface ClientOperations {
     public MessageCode deleteClient(Client client) throws RestClientException;
 
     /**
-     * Обновить клента
+     * Update client
+     *
      * @param client Замечание: объект Client должен иметь id
      * @return
      * @throws RestClientException

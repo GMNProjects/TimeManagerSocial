@@ -4,12 +4,14 @@ import com.rhcloud.gmn.tm.api.TimeManager;
 import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 
 /**
- * Created by niaz on 06.07.2014.
+ * @author GMNProjects
+ *
+ * Custom OAuth2ConnectionFactory
  */
 public class TimeManagerConnectionFactory extends OAuth2ConnectionFactory<TimeManager> {
 
     /**
-     * Фабрика коннекшкнов для TimeManager
+     * Connection factory for TimeManager
      * @param clientId
      * @param clientSecret
      */
