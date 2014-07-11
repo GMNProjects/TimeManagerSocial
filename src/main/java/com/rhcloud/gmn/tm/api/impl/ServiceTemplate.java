@@ -26,11 +26,13 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author GMNProjects
- *
- * {@link ServiceOperations} implementation
+ *         <p/>
+ *         {@link ServiceOperations} implementation
  */
 public class ServiceTemplate extends OperationTemplate implements ServiceOperations {
 
@@ -75,6 +77,14 @@ public class ServiceTemplate extends OperationTemplate implements ServiceOperati
         URI uri = buildOperation(Service.SERVICE_DELETE, params);
         ResponseEntity<MessageCode> clientResponseEntity = restTemplate.getForEntity(uri, MessageCode.class);
         return clientResponseEntity.getBody();
+    }
+
+    @Override
+    public List<Service> getAll() throws RestClientException {
+        checkAuthorization();
+        URI uri = buildOperation(Service.SERVICE_ALL, null);
+        List list = restTemplate.getForObject(uri, ArrayList.class);
+        return list;
     }
 
 }

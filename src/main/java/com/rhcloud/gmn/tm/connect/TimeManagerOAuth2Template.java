@@ -15,14 +15,13 @@
  */
 package com.rhcloud.gmn.tm.connect;
 
-import com.rhcloud.gmn.tm.timer.TimerFactory;
 import org.springframework.social.oauth2.OAuth2Template;
 import org.springframework.web.client.RestTemplate;
 
 /**
  * @author GMNProjects
- *
- * TimeManager OAuth2 Template
+ *         <p/>
+ *         TimeManager OAuth2 Template
  */
 public class TimeManagerOAuth2Template extends OAuth2Template {
 

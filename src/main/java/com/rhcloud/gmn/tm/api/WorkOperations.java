@@ -19,12 +19,15 @@ import com.rhcloud.gmn.tm.api.entity.MessageCode;
 import com.rhcloud.gmn.tm.api.entity.Work;
 import org.springframework.web.client.RestClientException;
 
+import java.util.List;
+
 /**
  * @author GMNProjects
  */
 public interface WorkOperations {
     /**
      * Delete {@link com.rhcloud.gmn.tm.api.entity.Work} по id
+     *
      * @param work
      * @return
      * @throws RestClientException
@@ -33,6 +36,7 @@ public interface WorkOperations {
 
     /**
      * Get {@link com.rhcloud.gmn.tm.api.entity.Work} по id {@link com.rhcloud.gmn.tm.api.entity.Work}
+     *
      * @param id
      * @return
      * @throws RestClientException
@@ -41,6 +45,7 @@ public interface WorkOperations {
 
     /**
      * Add {@link com.rhcloud.gmn.tm.api.entity.Work}
+     *
      * @param work
      * @return
      * @throws RestClientException
@@ -49,10 +54,19 @@ public interface WorkOperations {
 
     /**
      * Update {@link com.rhcloud.gmn.tm.api.entity.Work}
+     *
      * @param work
      * @return
      * @throws RestClientException
      */
     public Work updateWork(Work work) throws RestClientException;
+
+    /**
+     * Get all works
+     *
+     * @return All works List<Work>
+     * @throws RestClientException
+     */
+    public List<Work> getAll() throws RestClientException;
 
 }

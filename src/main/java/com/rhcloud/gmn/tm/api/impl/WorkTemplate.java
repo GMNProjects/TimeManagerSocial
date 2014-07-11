@@ -25,11 +25,13 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author GMNProjects
- *
- * {@link WorkOperations} implementation
+ *         <p/>
+ *         {@link WorkOperations} implementation
  */
 public class WorkTemplate extends OperationTemplate implements WorkOperations {
     private String access_token;
@@ -56,7 +58,7 @@ public class WorkTemplate extends OperationTemplate implements WorkOperations {
         checkAuthorization();
         final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.set("id", String.valueOf(id));
-        URI uri = buildOperation(Work.WORK_UPDATE, params);
+        URI uri = buildOperation(Work.WORK_GET, params);
         ResponseEntity<Work> clientResponseEntity = restTemplate.getForEntity(uri, Work.class);
         return clientResponseEntity.getBody();
     }
@@ -80,5 +82,13 @@ public class WorkTemplate extends OperationTemplate implements WorkOperations {
         URI uri = buildOperation(Work.WORK_UPDATE, params);
         ResponseEntity<Work> clientResponseEntity = restTemplate.getForEntity(uri, Work.class);
         return clientResponseEntity.getBody();
+    }
+
+    @Override
+    public List<Work> getAll() throws RestClientException {
+        checkAuthorization();
+        URI uri = buildOperation(Work.WORK_ALL, null);
+        List list = restTemplate.getForObject(uri, ArrayList.class);
+        return list;
     }
 }

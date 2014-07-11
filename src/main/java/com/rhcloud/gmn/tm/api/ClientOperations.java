@@ -20,6 +20,8 @@ import com.rhcloud.gmn.tm.api.entity.Client;
 import com.rhcloud.gmn.tm.api.entity.MessageCode;
 import org.springframework.web.client.RestClientException;
 
+import java.util.List;
+
 /**
  * @author GMNProjects
  *         Client API
@@ -60,4 +62,6 @@ public interface ClientOperations {
      * @throws RestClientException
      */
     public Client updateClient(Client client) throws RestClientException;
+
+    public List<Client> getAll() throws RestClientException;
 }

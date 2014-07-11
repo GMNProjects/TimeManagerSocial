@@ -19,6 +19,8 @@ import com.rhcloud.gmn.tm.api.entity.MessageCode;
 import com.rhcloud.gmn.tm.api.entity.Service;
 import org.springframework.web.client.RestClientException;
 
+import java.util.List;
+
 /**
  * @author GMNProjects
  */
@@ -49,5 +51,7 @@ public interface ServiceOperations {
      * @throws RestClientException
      */
     public MessageCode deleteService(Service service) throws RestClientException;
+
+    public List<Service> getAll() throws RestClientException;
 
 }

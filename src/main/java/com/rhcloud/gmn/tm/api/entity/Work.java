@@ -43,6 +43,11 @@ public class Work implements Serializable {
      */
     public static final String WORK_GET = "work.get";
 
+    /**
+     * Get All method
+     */
+    public static final String WORK_ALL = "work.all";
+
     private Long w_id;
     private String name;
 

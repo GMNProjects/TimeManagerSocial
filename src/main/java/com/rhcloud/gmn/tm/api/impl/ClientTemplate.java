@@ -27,11 +27,13 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author GMNProjects
- *
- * {@link ClientOperations} implementation
+ *         <p/>
+ *         {@link ClientOperations} implementation
  */
 public class ClientTemplate extends OperationTemplate implements ClientOperations {
 
@@ -87,5 +89,13 @@ public class ClientTemplate extends OperationTemplate implements ClientOperation
         URI uri = buildOperation(Client.CLIENT_UPDATE, params);
         ResponseEntity<Client> clientResponseEntity = restTemplate.getForEntity(uri, Client.class);
         return clientResponseEntity.getBody();
+    }
+
+    @Override
+    public List<Client> getAll() throws RestClientException {
+        checkAuthorization();
+        URI uri = buildOperation(Client.CLIENT_ALL, null);
+        List list = restTemplate.getForObject(uri, ArrayList.class);
+        return list;
     }
 }

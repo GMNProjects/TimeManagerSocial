@@ -28,7 +28,7 @@ public class Client {
     public static final String CLIENT_GET = "client.get";
     public static final String CLIENT_DELETE = "client.delete";
     public static final String CLIENT_UPDATE = "client.update";
-
+    public static final String CLIENT_ALL = "client.all";
     private Long c_id;
 
     private String name;

@@ -34,6 +34,7 @@ public class Service {
     public static final String SERVICE_ADD = "service.add";
     public static final String SERVICE_GET = "service.get";
     public static final String SERVICE_DELETE = "service.delete";
+    public static final String SERVICE_ALL = "service.all";
 
     private Long s_id;
 
