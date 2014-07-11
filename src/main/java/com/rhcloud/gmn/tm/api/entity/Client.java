@@ -67,7 +67,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client {" + c_id + "," + name + "}";
+        return name;
     }
 
 }

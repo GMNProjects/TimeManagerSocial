@@ -19,7 +19,6 @@ import java.io.Serializable;
 
 /**
  * @author GMNProjects
- *
  */
 public class Work implements Serializable {
 
@@ -82,7 +81,7 @@ public class Work implements Serializable {
 
     @Override
     public String toString() {
-        return "Work {" + w_id + "," + name + "}";
+        return name;
     }
 
 
