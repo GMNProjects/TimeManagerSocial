@@ -19,6 +19,7 @@ package com.rhcloud.gmn.tm.api.impl;
 import com.rhcloud.gmn.tm.api.ClientOperations;
 import com.rhcloud.gmn.tm.api.entity.Client;
 import com.rhcloud.gmn.tm.api.entity.MessageCode;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
 import org.springframework.util.LinkedMultiValueMap;
@@ -27,7 +28,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -95,7 +96,7 @@ public class ClientTemplate extends OperationTemplate implements ClientOperation
     public List<Client> getAll() throws RestClientException {
         checkAuthorization();
         URI uri = buildOperation(Client.CLIENT_ALL, null);
-        List list = restTemplate.getForObject(uri, ArrayList.class);
-        return list;
+        ResponseEntity<Client[]> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, null, Client[].class);
+        return Arrays.asList(responseEntity.getBody());
     }
 }

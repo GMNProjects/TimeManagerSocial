@@ -18,6 +18,7 @@ package com.rhcloud.gmn.tm.api.impl;
 import com.rhcloud.gmn.tm.api.WorkOperations;
 import com.rhcloud.gmn.tm.api.entity.MessageCode;
 import com.rhcloud.gmn.tm.api.entity.Work;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -25,7 +26,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -88,7 +89,7 @@ public class WorkTemplate extends OperationTemplate implements WorkOperations {
     public List<Work> getAll() throws RestClientException {
         checkAuthorization();
         URI uri = buildOperation(Work.WORK_ALL, null);
-        List list = restTemplate.getForObject(uri, ArrayList.class);
-        return list;
+        ResponseEntity<Work[]> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, null, Work[].class);
+        return Arrays.asList(responseEntity.getBody());
     }
 }
