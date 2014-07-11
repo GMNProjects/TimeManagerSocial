@@ -25,7 +25,7 @@
 
     <groupId>com.rhcloud</groupId>
     <artifactId>timemanager-desktop</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.5-RELEASE</version>
     <packaging>jar</packaging>
     <url>https://tm-gmn.rhcloud.com/home</url>
 
